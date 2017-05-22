@@ -1,0 +1,57 @@
+.site-wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 30px;
+  @media (min-width: $screen-sm){
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (min-width: $screen-md){
+    max-width: 750px;
+    margin-top: 56px;
+    margin-left: auto;
+    margin-right: 5%;
+  }
+  @media (min-width: $screen-lg){
+    margin-right: 17%;
+  }
+}
+
+.site-shield,
+.site-shield__color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.site-shield {
+  background-color: #fff;
+  z-index: $zindex-shield;
+  pointer-events: none;
+  opacity: 0;
+  transition: all $timing-duration-shield-out ease-out;
+
+  &.is-open {
+    opacity: 0.9;
+    transition: all $timing-duration-shield-in ease-in;
+  }
+}
+
+.site-shield__color {
+  background-color: transparent;
+  transition: background-color $timing-duration-shield-out ease-out;
+  .is-open & {
+    transition: background-color $timing-duration-shield-in ease-in;
+  }
+}

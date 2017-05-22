@@ -1,0 +1,39 @@
+$font-path: '../fonts' !default;
+
+$black:              #000;
+$white:              #FFF;
+$cyan:               #0FF;
+$magenta:            #F0F;
+$yellow:             #FF0;
+$highlighter:        #FAFA11;
+$highlighter-border: darken($highlighter, 5%);
+$cmyk-gradient:      $cyan 25%, $magenta 25%, $magenta 50%, $yellow 50%, $yellow 75%, $black 75%;
+
+$c-text:             #101010;
+$c-bg:               #EFEFEF;
+$c-link:             #D70050;
+$c-link-hover:       darken($c-link, 5%);
+
+$zindex-nav:    10;
+$zindex-footer: 10;
+$zindex-shield: 100;
+
+$timing-duration-base:  300ms;
+$timing-duration-short: 150ms;
+$timing-duration-long:  500ms;
+
+$timing-duration-shield-in:  300ms;
+$timing-duration-shield-out: 1100ms; // 800ms;
+$timing-duration-slideshow:  1000ms;
+
+$font-stack-body:      Futura, Trebuchet MS, Arial, sans-serif;
+$font-stack-headings: 'Larish Neue', serif;
+
+$screen-sm:           560px;
+$screen-md:           780px;
+$screen-lg:           1200px;
+
+$screen-xs-max:       $screen-sm - 1px;
+$screen-sm-max:       $screen-md - 1px;
+$screen-md-max:       $screen-lg - 1px;
+$screen-lg-max:       9999px

@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "app.js" : {
+      "files" : [
+        "js/app.js"
+      ],
+      "main" : true
+    },
+    "app.css" : {
+      "files" : [
+        "scss/app.scss"
+      ],
+      "main" : true
+    }
+  },
+  "paths": {
+    "source": "public/src/",
+    "dist": "public/dist/"
+  },
+  "config": {}
+}

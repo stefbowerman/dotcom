@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Larish Neue';
+  src: url('#{$font-path}/LarishNeueSemibold-Regular.eot?#iefix') format('embedded-opentype'),  
+       url('#{$font-path}/LarishNeueSemibold-Regular.otf')  format('opentype'),
+       url('#{$font-path}/LarishNeueSemibold-Regular.woff') format('woff'), 
+       url('#{$font-path}/LarishNeueSemibold-Regular.ttf')  format('truetype'), 
+       url('#{$font-path}/LarishNeueSemibold-Regular.svg#LarishNeueSemibold-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;  
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100%;
+  font-family: $font-stack-body;
+  line-height: 2;
+  background-color: $c-bg;
+  color: $c-text;
+  overflow-x: hidden;
+  text-rendering: geometricPrecision;
+  position: relative;
+  font-size: 16px;
+  @media (min-width: $screen-sm){
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .ua-chrome &,
+  .ua-safari & {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  .ua-firefox & {
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-stack-headings;
+  text-transform: capitalize; 
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h4, h5, h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.074rem;
+}
+
+h2 {
+  font-size: 1.728rem;
+}
+
+h3 {
+  font-size: 1.44rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.833rem;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+a {
+  text-decoration: none;
+  color: $c-text;
+  border-bottom: 1px solid $c-text;
+  transition: all $timing-duration-short ease-in;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-link;
+    border-bottom-color: $c-link-hover;
+    transition-timing-function: ease-out;
+  }
+
+}
