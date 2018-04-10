@@ -23,7 +23,7 @@ html {
 body {
   min-height: 100%;
   font-family: $font-stack-body;
-  line-height: 2;
+  line-height: 1.8;
   background-color: $c-bg;
   color: $c-text;
   overflow-x: hidden;
@@ -31,8 +31,8 @@ body {
   position: relative;
   font-size: 16px;
   @media (min-width: $screen-sm){
-    line-height: 1.8;
-    font-size: 15px;
+    line-height: 1.9;
+    font-size: 14px;
   }
 
   .ua-chrome &,
@@ -90,16 +90,25 @@ p {
 }
 
 a {
+  position: relative;
   text-decoration: none;
-  color: $c-text;
-  border-bottom: 1px solid $c-text;
+  color: $c-link;
   transition: all $timing-duration-short ease-in;
+
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    border-bottom: 1px dotted transparentize($c-link, 0.5);
+    content: "";
+  }
 
   &:hover,
   &:focus,
   &:active {
-    color: $c-link;
-    border-bottom-color: $c-link-hover;
+    color: $c-link-hover;
     transition-timing-function: ease-out;
   }
 

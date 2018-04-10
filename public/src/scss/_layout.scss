@@ -24,6 +24,22 @@
   @media (min-width: $screen-lg){
     margin-right: 17%;
   }
+
+  // On larger screens, add a box-shadow to the bottom of the page
+  @media (min-width: $screen-md){
+    padding-bottom: 150px;
+    
+    &:after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: #ffffff;
+      box-shadow: 0px -20px 58px 40px $c-bg;
+    }
+  }
 }
 
 .site-shield,

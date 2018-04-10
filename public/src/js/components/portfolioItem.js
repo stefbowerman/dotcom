@@ -1,6 +1,7 @@
 PortfolioItem = function($link) {
   this.$link       = $link;
   this.color       = this.$link.data('color');
+  this.colorInvert = this.$link.data('color-invert') != undefined ? true : false;
   this.$item       = this.$link.data('portfolio-item') ? $( '#' + this.$link.data('portfolio-item') ) : null;
   this.$slideShow  = this.$item ? this.$item.find('.portfolio-item__slideshow') : null;
 
@@ -11,6 +12,14 @@ PortfolioItem = function($link) {
   if(this.$slideShow && this.$slideShow.find('img').length){
     this._hasSlideShow = true;
     this._initializeSlideshow();
+  }
+
+  if(this.colorInvert) {
+    this.$item.addClass('portfolio-item--inverted');
+  }
+
+  if(this.$link.attr('href') == '#') {
+    this.$link.on('click', function() { return false; });
   }
 };
 

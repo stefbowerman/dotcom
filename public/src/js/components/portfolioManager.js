@@ -12,7 +12,7 @@ PortfolioManager = function($container, $shield) {
   this.mouseLeaveTimeoutDuration = 300;
 
   // Initialize
-  this.$container.on('mouseleave', function(){
+  this.$container.on('mouseleave', function(){    
     $(this).removeClass('has-active-child');
   });
 

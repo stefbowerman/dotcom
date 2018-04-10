@@ -81,6 +81,36 @@
     a {
       color: $c-text;
       border-bottom: none;
+
+      &:after {
+        display: none;
+      }
     }
   }
+}
+
+.gif {
+  display: none;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  height: 80px;
+  width: 80px * 16/9;
+  background: {
+    position: center;
+    size: cover;
+  }
+
+  opacity: 0;
+  transition: opacity 1500ms ease-in;
+
+  &.is-loaded {
+    opacity: 1;
+  }
+
+  @media (min-width: $screen-lg){
+    display: block;
+    position: fixed;
+  }
+
 }

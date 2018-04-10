@@ -9,10 +9,10 @@ $highlighter:        #FAFA11;
 $highlighter-border: darken($highlighter, 5%);
 $cmyk-gradient:      $cyan 25%, $magenta 25%, $magenta 50%, $yellow 50%, $yellow 75%, $black 75%;
 
-$c-text:             #101010;
-$c-bg:               #EFEFEF;
-$c-link:             #D70050;
-$c-link-hover:       darken($c-link, 5%);
+$c-text:             #353535;
+$c-bg:               $white;
+$c-link:             $c-text;
+$c-link-hover:       #D70050;
 
 $zindex-nav:    10;
 $zindex-footer: 10;

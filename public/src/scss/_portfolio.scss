@@ -4,10 +4,10 @@
   }
 }
 
-.portfolio-links {
+.portfolio-content {
 
-  @media (max-width: $screen-sm-max){
-    font-size: 20px;
+  p {
+    max-width: 40em;
   }
 
   a {
@@ -15,21 +15,27 @@
     line-height: initial;
     position: relative;
     z-index: 0;
-    color: $c-text;
-    border-bottom: 1px solid $c-text;
     transition: all $timing-duration-short ease-in, z-index $timing-duration-shield-out step-end;
 
     margin: 0 10px;
 
+    &:after {
+      content: "·";
+      position: absolute;
+      right: -12px;
+      left: auto;
+      bottom: auto;
+      border-bottom: none;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
     @media (min-width: $screen-md){
-      margin: 0 14px 0 0;
+      margin: 0 14px 5px 0;
       &:last-child {
         margin-right: 0;
-      }
-      &:not(:last-child):after {
-        content: "·";
-        position: absolute;
-        right: -12px;
       }
     }
 
@@ -140,7 +146,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity $timing-duration-base ease-out, transform $timing-duration-base ease-out, z-index $timing-duration-long step-end;
-  
+
   &.is-active {
     z-index: $zindex-shield + 1;
     opacity: 1;
@@ -187,5 +193,9 @@
   p {
     margin-bottom: 4px;
     line-height: 1.4;
+  }
+
+  .portfolio-item--inverted & {
+    color: $white;
   }
 }
