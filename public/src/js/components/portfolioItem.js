@@ -4,6 +4,7 @@ PortfolioItem = function($link) {
   this.colorInvert = this.$link.data('color-invert') != undefined ? true : false;
   this.$item       = this.$link.data('portfolio-item') ? $( '#' + this.$link.data('portfolio-item') ) : null;
   this.$slideShow  = this.$item ? this.$item.find('.portfolio-item__slideshow') : null;
+  this.$slideCount = null;
 
   this._hasSlideShow    = false;
   this.slideShowInterval = null;
@@ -27,9 +28,17 @@ PortfolioItem.prototype._initializeSlideshow = function(){
   if(!this._hasSlideShow){
     return;
   }
+
+  this.$slideCount = $(document.createElement('span')).addClass('portfolio-item__slide-count');
+  this.$item.append( this.$slideCount );
+
   if(!this.getActiveSlide().length){
     this.$slideShow.find('img').first().addClass('is-active');
   }
+
+  this.updateSlideCount();
+
+  console.log(this.getActiveSlide().index());  
 };
 
 PortfolioItem.prototype.getSlideCount = function(){
@@ -41,6 +50,7 @@ PortfolioItem.prototype.goToSlide = function(i){
   if(this._hasSlideShow && i >= 0 && i < this.getSlideCount()){
     $slides.removeClass('is-active');
     $slides.eq( i ).addClass('is-active');
+    this.updateSlideCount();
   }
 };
 
@@ -68,6 +78,12 @@ PortfolioItem.prototype.stopSlideShow = function(){
 PortfolioItem.prototype.startSlideShow = function(){
   if(this._hasSlideShow){
     this.slideShowInterval = setInterval(this.nextSlide.bind(this), this.slideShowDuration);
+  }
+};
+
+PortfolioItem.prototype.updateSlideCount = function(){
+  if(this.$slideCount && this.getActiveSlide().length) {
+    this.$slideCount.text( (this.getActiveSlide().index() + 1) + ' / ' + this.getSlideCount() );  
   }
 };
 
