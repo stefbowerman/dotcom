@@ -56,18 +56,19 @@
   z-index: $zindex-shield;
   pointer-events: none;
   opacity: 0;
-  transition: all $timing-duration-shield-out ease-out;
+  transition: opacity $timing-duration-shield-out ease-out;
 
   &.is-open {
     opacity: 0.9;
-    transition: all $timing-duration-shield-in ease-in;
+    transition: opacity $timing-duration-shield-in ease-in;
   }
 }
 
 .site-shield__color {
   background-color: transparent;
-  transition: background-color $timing-duration-shield-out ease-out;
+  transition: background-color $timing-duration-shield-out ease-in-out;
+
   .is-open & {
-    transition: background-color $timing-duration-shield-in ease-in;
+    transition-duration: $timing-duration-shield-color;
   }
 }
