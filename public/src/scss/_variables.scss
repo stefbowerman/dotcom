@@ -18,13 +18,15 @@ $zindex-nav:    10;
 $zindex-footer: 10;
 $zindex-shield: 100;
 
-$timing-duration-base:  300ms;
-$timing-duration-short: 150ms;
-$timing-duration-long:  500ms;
+$timing-duration-base:     300ms;
+$timing-duration-shortest: 100ms;
+$timing-duration-short:    150ms;
+$timing-duration-long:     500ms;
 
-$timing-duration-shield-in:  300ms;
-$timing-duration-shield-out: 1100ms; // 800ms;
-$timing-duration-slideshow:  1000ms;
+$timing-duration-shield-in:    1000ms;
+$timing-duration-shield-out:   1500ms;
+$timing-duration-shield-color: 1500ms;
+$timing-duration-slideshow:    900ms;
 
 $font-stack-body:      Futura, Trebuchet MS, Arial, sans-serif;
 $font-stack-headings: 'Larish Neue', serif;
@@ -36,4 +38,4 @@ $screen-lg:           1200px;
 $screen-xs-max:       $screen-sm - 1px;
 $screen-sm-max:       $screen-md - 1px;
 $screen-md-max:       $screen-lg - 1px;
-$screen-lg-max:       9999px
+$screen-lg-max:       9999px;

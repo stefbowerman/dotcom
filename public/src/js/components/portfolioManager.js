@@ -24,12 +24,18 @@ PortfolioManager.prototype.activateItem = function(item){
   item.activate();
   this.$shieldColor.css('background-color', item.color || '');
   this.$shield.addClass('is-open');
+  this.$shield.off('transitionend'); // Remove the handler that gets added when deactivating
 };
 
 PortfolioManager.prototype.deactivateItem = function(item){
   this.currentItem = null;
   item.deactivate();
   this.$shield.removeClass('is-open');
+
+  // Reset the background color once the shield closes
+  this.$shield.one('transitionend', function() {
+    this.$shieldColor.css('background-color', '');
+  }.bind(this))
 };
 
 PortfolioManager.prototype.onItemMouseenter = function(item){
