@@ -30,6 +30,7 @@ var globs = manifest.globs;
 gulp.task('html'       , require('./gulp/task/html'));
 gulp.task('jshint'     , require('./gulp/task/jshint'));
 gulp.task('scripts'    , require('./gulp/task/scripts'));
+gulp.task('scripts-production'    , require('./gulp/task/scripts-production'));
 gulp.task('scripts-lib', require('./gulp/task/scripts-lib'));
 gulp.task('server'     , require('./gulp/task/server'));
 gulp.task('styles'     , require('./gulp/task/styles'));
@@ -41,7 +42,8 @@ gulp.task('fonts'      , require('./gulp/task/fonts'));
 // `gulp build` - Run all the build tasks but don't clean up beforehand.
 // Generally you should be running `gulp` instead of `gulp build`.
 gulp.task('build', function(callback){
-  runSequence('styles', 'scripts', 'scripts-lib', 'html', 'images', 'fonts', callback);
+  var scriptsTask = argv.production ? 'scripts-production' : 'scripts';
+  runSequence('styles', scriptsTask, 'scripts-lib', 'html', 'images', 'fonts', callback);
 });
 
 // ### Watch

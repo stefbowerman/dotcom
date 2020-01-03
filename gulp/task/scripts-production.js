@@ -7,10 +7,10 @@ var browserify  = require('browserify');
 var babelify    = require('babelify');
 var watchify    = require('watchify');
 var merge       = require('merge-stream');
-var browserSync = require('browser-sync');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
 var enabled     = require('../enabled');
+var argv        = require('minimist')(process.argv.slice(2));
 var manifest    = require('asset-builder')('./manifest.json');
 var paths       = manifest.paths;
 
@@ -33,8 +33,8 @@ module.exports = function(cb){
         extensions: [".babel", ".js"],
         debug: true,
         cache: {},
-        packageCache: {},
-        plugin: [watchify]
+        packageCache: {}
+        // , plugin: [watchify]
       });
 
     var doBundle = function(){
@@ -76,15 +76,12 @@ module.exports = function(cb){
       .pipe(gulp.dest(paths.dist + 'js'));
     }
 
-    var doBundleUpdate = function(){
-      gutil.log('Running bundle update');
-      var stream = doBundle();
-      return stream.pipe(browserSync.stream());
-    }
+    bundler.on('bundle', function() {
+      cb()
+    });
 
-    bundler.on('update', doBundleUpdate);
-    merged.add( doBundle() );
+    doBundle();
   });
 
-  return merged.pipe(browserSync.stream());
+  // return merged;
 }
