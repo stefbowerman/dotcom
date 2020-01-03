@@ -9,7 +9,7 @@ $highlighter:        #FAFA11;
 $highlighter-border: darken($highlighter, 5%);
 $cmyk-gradient:      $cyan 25%, $magenta 25%, $magenta 50%, $yellow 50%, $yellow 75%, $black 75%;
 
-$c-text:             #353535;
+$c-text:             #222; // #353535;
 $c-bg:               $white;
 $c-link:             $c-text;
 $c-link-hover:       #D70050;
@@ -23,9 +23,9 @@ $timing-duration-shortest: 100ms;
 $timing-duration-short:    150ms;
 $timing-duration-long:     500ms;
 
-$timing-duration-shield-in:    1000ms;
-$timing-duration-shield-out:   1500ms;
-$timing-duration-shield-color: 1500ms;
+$timing-duration-shield-in:    900ms;
+$timing-duration-shield-out:   1200ms;
+$timing-duration-shield-color: 2000ms;
 $timing-duration-slideshow:    900ms;
 
 $font-stack-body:      Futura, Trebuchet MS, Arial, sans-serif;

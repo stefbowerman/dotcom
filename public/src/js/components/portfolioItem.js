@@ -31,8 +31,10 @@ PortfolioItem.prototype = {
       return;
     }
   
-    this.$slideCount = $(document.createElement('span')).addClass('portfolio-item__slide-count');
-    this.$item.append( this.$slideCount );
+    if(this.$slides.length > 1) {
+      this.$slideCount = $(document.createElement('span')).addClass('portfolio-item__slide-count');
+      this.$item.append( this.$slideCount );
+    }
   
     if(!this.getActiveSlide().length){
       this.$slides.first().addClass('is-active');
@@ -80,7 +82,7 @@ PortfolioItem.prototype = {
   },
 
   updateSlideCount: function(){
-    if(this.$slideCount && this.getActiveSlide().length) {
+    if(this.$slideCount && this.$slideCount.length && this.getActiveSlide().length) {
       this.$slideCount.text( (this.getActiveSlide().index() + 1) + ' / ' + this.getSlideCount() );  
     }
   },

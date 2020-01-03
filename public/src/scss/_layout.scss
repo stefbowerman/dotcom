@@ -66,7 +66,7 @@
 
 .site-shield__color {
   background-color: transparent;
-  transition: background-color $timing-duration-shield-out ease-in-out;
+  transition: background-color $timing-duration-shield-out cubic-bezier(0.57, 0.02, 0.16, 1.01);
 
   .is-open & {
     transition-duration: $timing-duration-shield-color;
