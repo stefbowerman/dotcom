@@ -10,18 +10,22 @@
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  padding: 60px 30px;
-  @media (min-width: $screen-sm){
+  padding: 60px 30px 100px;
+
+  @media (min-width: $screen-sm) {
     width: 80%;
     margin: 0 auto;
   }
-  @media (min-width: $screen-md){
+
+  @media (min-width: $screen-md) {
     max-width: 750px;
-    margin-top: 56px;
+    padding-top: 60px + 56px;
+    // margin-top: 56px;
     margin-left: auto;
     margin-right: 5%;
   }
-  @media (min-width: $screen-lg){
+
+  @media (min-width: $screen-lg) {
     margin-right: 17%;
   }
 

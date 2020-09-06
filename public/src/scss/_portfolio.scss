@@ -1,7 +1,7 @@
 .portfolio {
-  @media (max-width: $screen-sm-max){
-    text-align: center;
-  }
+  // @media (max-width: $screen-sm-max){
+  //   text-align: center;
+  // }
 }
 
 .portfolio-content {
@@ -17,7 +17,7 @@
     z-index: 0;
     transition: all $timing-duration-short ease-in, z-index $timing-duration-shield-out step-end;
 
-    margin: 0 10px;
+    margin-right: 16px;
 
     &:after {
       content: "·";

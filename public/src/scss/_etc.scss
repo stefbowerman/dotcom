@@ -4,12 +4,13 @@
   display: inline-block;
   border-radius: 50%;
   border: 1px solid $c-text;
-  position: fixed;
+  position: absolute;
   z-index: $zindex-footer;
-  display: none;
+  
   @media (min-width: $screen-md){
-    display: block;
+    position: fixed;
   }
+
   &:before,
   &:after {
     content: "";
@@ -38,26 +39,29 @@
 }
 
 .cmyk {
-  position: fixed;
+  position: absolute;
   z-index: $zindex-footer;
-  display: none;
-  @media (min-width: $screen-md){
-    display: block;
-  }
+
   bottom: 50px;
-  left: 29px;
+  right: 29px;
   height: 48px;
   width: 2px;
   background: linear-gradient(to bottom, $cmyk-gradient);
+
+  @media (min-width: $screen-md){
+    position: fixed;
+    left: 29px;
+    right: auto;
+  }
 }
 
 .follow {
-  padding: 30px;
+  padding: 22px 50px;
   text-align: center;
-  max-width: 280px;
   margin: 0 auto;
   text-transform: uppercase;
   font-size: 11px;
+  line-height: 1.5;
   font-weight: bold;
 
   @media (min-width: $screen-md){
@@ -66,7 +70,7 @@
     z-index: $zindex-footer;
     bottom: 49px;
     left: 49px;
-    max-width: 200px;
+    max-width: 280px;
     margin: 0;
     padding: 0;
     text-align: left;

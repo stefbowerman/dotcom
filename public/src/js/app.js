@@ -9,7 +9,7 @@
   var GifChanger       = require('./components/gifChanger.js');
   
   // DOM ready note
-  document.getElementsByClassName('follow')[0].appendChild(document.createTextNode( 'generated at ' + new Date() ));
+  document.getElementsByClassName('follow')[0].appendChild(document.createTextNode(new Date()));
 
   $(function(){
     var $container = $('.portfolio-content');
