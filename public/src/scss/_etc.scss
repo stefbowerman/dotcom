@@ -50,8 +50,8 @@
 
   @media (min-width: $screen-md){
     position: fixed;
-    left: 29px;
-    right: auto;
+    // left: 29px;
+    // right: auto;
   }
 }
 
@@ -61,40 +61,25 @@
   margin: 0 auto;
   text-transform: uppercase;
   font-size: 11px;
-  line-height: 1.5;
-  font-weight: bold;
+  line-height: 1.3;
+  font-family: 'Courier', monospace;
 
   @media (min-width: $screen-md){
     display: block;
     position: fixed;
     z-index: $zindex-footer;
     bottom: 49px;
-    left: 49px;
-    max-width: 280px;
+    left: 24px;
+    max-width: calc(100vh - 175px);
     margin: 0;
     padding: 0;
     text-align: left;
     transform: rotateZ(-90deg) translateY(100%);
     transform-origin: left bottom;
   }
-  li {
-    display: inline-block;
-    &:hover {
-      
-    }
-    a {
-      color: $c-text;
-      border-bottom: none;
-
-      &:after {
-        display: none;
-      }
-    }
-  }
 }
 
 .gif {
-  display: none;
   position: fixed;
   top: 25px;
   left: 25px;
@@ -104,17 +89,14 @@
     position: center;
     size: cover;
   }
-
   opacity: 0;
-  transition: opacity 1500ms ease-in;
-
-  &.is-loaded {
-    opacity: 1;
-  }
+  transition: opacity 300ms cubic-bezier(0.6, 0.06, 0.59, 0.98);
 
   @media (min-width: $screen-lg){
-    display: block;
-    position: fixed;
+    &.is-loaded {
+      opacity: 1;
+      transition-duration: 1.5s
+    }
   }
 
 }

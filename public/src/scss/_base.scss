@@ -95,23 +95,27 @@ a {
   position: relative;
   text-decoration: none;
   color: $c-link;
-  transition: all $timing-duration-short ease-in;
+  // transition: all $timing-duration-short ease-in;
 
   &:after {
+    content: "";
     position: absolute;
     left: 0;
     right: 0;
     bottom: -2px;
     height: 1px;
-    border-bottom: 1px dotted transparentize($c-link, 0.5);
-    content: "";
+    border-bottom: 1px dotted transparentize($c-link, 0.75);
+    transition: border-bottom-color $timing-duration-short ease-in;
   }
 
-  &:hover,
-  &:focus,
-  &:active {
-    color: $c-link-hover;
-    transition-timing-function: ease-out;
+  @media (hover: hover) {
+    &:hover,
+    &:focus,
+    &:active {
+      &:after {
+        border-bottom-color: $c-link;
+        transition-timing-function: ease-out;
+      }
+    }
   }
-
 }
