@@ -1,7 +1,26 @@
 @import "variables";
+@import "mixins";
 @import "normalize";
 @import "base";
 @import "helpers";
 @import "layout";
 @import "etc";
 @import "portfolio";
+
+body.is-loading {
+  opacity: 0;
+
+  &.is-loaded {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.62, 0.07, 0.81, 0.97);
+  }
+}
+
+.main-container {
+  opacity: 0;
+
+  body.is-revealed & {
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.62, 0.07, 0.81, 0.97) 0.3s;
+  }
+}

@@ -84,6 +84,7 @@
         transform: skew(8deg) rotate(4deg) scaleX(1);
       }
     }
+
     &:nth-child(5n+2) {
       &:before {
         top: -1px;
@@ -96,6 +97,7 @@
         transform: skew(-6deg) rotate(-1deg) scaleX(1)
       }
     }
+
     &:nth-child(5n+3) {
       &:before {
         transform: skew(4deg) rotate(-4deg) scaleX(0);
@@ -104,6 +106,7 @@
         transform: skew(4deg) rotate(-4deg) scaleX(1);
       }
     }
+
     &:nth-child(5n+4) {
       &:before {
         top: -2px;
@@ -116,6 +119,7 @@
         transform: skew(-1deg) rotate(1deg) scaleX(1);
       }
     }
+
     &:nth-child(5n+5) {
       &:before {
         top: 0px;
@@ -132,6 +136,12 @@
 
   &.has-active-child a:not(.is-active) {
     transition: all $timing-duration-short ease-in, z-index 0ms step-end;
+  }
+
+  a sup {
+    font-family: $font-stack-mono;
+    margin-left: -5px;
+    left: 2px;
   }
 }
 
@@ -216,5 +226,32 @@
 
   .portfolio-item--inverted & {
     color: $white;
+  }
+}
+
+.portfolio-footer {
+  margin-top: 2rem;
+  font-size: 85%;
+  color: $gray;
+
+  a {
+    color: inherit;
+
+    &:after {
+      display: none;
+    }
+
+    @include has-hover {
+      &:hover {
+        color: $c-text;
+      }
+    }
+
+    .date {
+      display: inline-block;
+      font-family: $font-stack-mono;
+      font-size: 95%;
+      letter-spacing: -0.06em;
+    }
   }
 }

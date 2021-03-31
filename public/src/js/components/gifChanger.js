@@ -8,8 +8,6 @@ GifChanger = function($el) {
   this.$el       = $el;
   this.sources   = this.$el.find('data').map(function(i, el) { return $(el).val(); });
 
-  if($(window).width() < breakpoints.lg) return;  
-
   var startingIndex  = Math.floor(Math.random() * this.sources.length);
   var startingSource = this.sources[startingIndex];
 

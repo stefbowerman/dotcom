@@ -1,5 +1,4 @@
 (function(window, $, undefined){
-
   require('cssuseragent');
 
   function shuffleArray(array) {
@@ -9,24 +8,31 @@
       array[i] = array[j];
       array[j] = temp;
     }
-  }  
+  }
 
-  // Portfolio stuff
+  // Elements
+  var $body =    $(document.body);
+  var $container = $('.portfolio-content');
+  var $shield    = $('.site-shield');
+  var $gif       = $('.gif');
+  var $follow    = $('.follow');
+
+  // Components
   var PortfolioItem    = require('./components/portfolioItem.js');
   var PortfolioManager = require('./components/portfolioManager.js');
-
   var GifChanger       = require('./components/gifChanger.js');
-  
-  // DOM ready note
-  var followEl = document.getElementsByClassName('follow')[0]
-  var now = new Date()
-  var nowString = [now.toDateString(), now.toTimeString()].join(' ')
-  var typeString = ''
+  var breakpoints      = require('./components/bps.js');
 
-  var typeInterval
-  var typeLetter = function() {
+  // Typing stuff
+  var now = new Date();
+  var nowString = [now.toDateString(), now.toTimeString()].join(' ');
+  var typeString = '';
+  var typeInterval = null;
+  
+  var typeLetter = function(finishCallback) {
     if (typeString.length >= nowString.length) {
-      followEl.innerText = typeString
+      $follow.text(typeString)
+      finishCallback && finishCallback()
       clearInterval(typeInterval)
     }
     else {
@@ -34,25 +40,38 @@
       typeString = nowString.substring(0, typeString.length + numToType) // go two at a time
       var split = typeString.split('')
       shuffleArray(split)
-      followEl.innerText = split.join('')
+      $follow.text(split.join(''))
     }
   }
-  
-  var $container = $('.portfolio-content');
-  var $shield    = $('.site-shield');
 
   $(function(){
+    var gifChanger = new GifChanger($gif);
     var portfolioManager = new PortfolioManager( $container, $shield );
 
     $container.find('a').each(function(index, el) {
       portfolioManager.registerItem(new PortfolioItem($(el)));
     });
 
-    var gifChanger = new GifChanger( $('.gif') );
+    var showCallback = function() {
+      $body.addClass('is-revealed');
+      setTimeout(function() { $gif.addClass('show'); }, 1000);
+    }
 
     setTimeout(function() {
-      typeInterval = setInterval(typeLetter, 50)
-    }, 1000)
+      $body.addClass('is-loaded');
+
+      if (window.innerWidth <= breakpoints.md) {
+        $follow.text(nowString)
+        showCallback()
+      }
+      else {
+        setTimeout(function() {
+          typeInterval = setInterval(function() {
+            typeLetter(showCallback)
+          }, 50)
+        }, 800)
+      }
+    }, 800)
   });
 
 })(window, jQuery);

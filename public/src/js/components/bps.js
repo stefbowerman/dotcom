@@ -1,7 +1,7 @@
 var Breakpoints = function(){
   return {
     sm: 560,
-    md: 900,
+    md: 780,
     lg: 1200
   }
 };

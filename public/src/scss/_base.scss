@@ -7,6 +7,7 @@
        url('#{$font-path}/LarishNeueSemibold-Regular.svg#LarishNeueSemibold-Regular') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 *,
@@ -95,7 +96,7 @@ a {
   position: relative;
   text-decoration: none;
   color: $c-link;
-  // transition: all $timing-duration-short ease-in;
+  transition: color $timing-duration-short ease-in;
 
   &:after {
     content: "";
@@ -108,10 +109,8 @@ a {
     transition: border-bottom-color $timing-duration-short ease-in;
   }
 
-  @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:active {
+  @include has-hover {
+    &:hover {
       &:after {
         border-bottom-color: $c-link;
         transition-timing-function: ease-out;
