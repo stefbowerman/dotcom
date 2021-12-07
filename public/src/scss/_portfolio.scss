@@ -206,7 +206,7 @@
   }
 }
 
-.portfolio-image__description {
+.portfolio-item__description {
   font-size: 80%;
   text-transform: uppercase;
   text-align: right;
@@ -222,6 +222,11 @@
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  em {
+    display: block;
+    margin-top: 20px;
   }
 
   .portfolio-item--inverted & {
