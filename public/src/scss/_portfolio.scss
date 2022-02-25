@@ -171,6 +171,7 @@
   height: 325px;
   width: 325px;
   position: relative;
+  margin-left: auto; // push to the right hand side
 
   @media (min-width: $screen-lg){
     height: 400px;
@@ -211,6 +212,13 @@
   text-transform: uppercase;
   text-align: right;
   margin-bottom: 15px;
+
+  max-width: 325px;
+  margin-left: auto; // push to the right hand side
+
+  @media (min-width: $screen-lg){
+    max-width: 400px;
+  }  
 
   h3, p {
     margin-bottom: 4px;
