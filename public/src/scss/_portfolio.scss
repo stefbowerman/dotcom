@@ -238,7 +238,13 @@
   }
 
   .portfolio-item--inverted & {
-    color: $white;
+    &, a {
+      color: $white;
+    }
+
+    a:after {
+      border-bottom-color: transparentize($white, 0.75)
+    }
   }
 }
 

@@ -68,7 +68,7 @@
         setTimeout(function() {
           typeInterval = setInterval(function() {
             typeLetter(showCallback)
-          }, 50)
+          }, 40)
         }, 800)
       }
     }, 800)
